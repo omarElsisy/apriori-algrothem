@@ -16,8 +16,9 @@ from optparse import OptionParser
 import operator 
 import numpy as np
 import pandas as pd  
-"""the first Block in code is to adpat the database to aprior algrothem it need to run if you 
+"""the Block1 in code is to adpat the database to aprior algrothem it need to run if you 
 do not have the upgraded_data.csv in your directory """
+"""Block 1"""
 # df = pd.read_csv("dataset_bigdata.csv") 
 # df['Income 75-122.000'] = df['Income 75-122.000'].map({0:'122>income>75', 1:'85>income>75', 2:'95>income>85', 3:'105>income>95', 4:'115>income>105',5:'122>income>115'}) 
 # df['Income >123.000']=df['Income >123.000'].map({0:"imcome<123",1:"income is bit bigger than 123",2:"income is bigger than 123",3:"income is much bigger than 123",4:"income is too much bigger than 123"})
@@ -77,7 +78,7 @@ do not have the upgraded_data.csv in your directory """
 # df.to_csv(r'/home/omarcc/git_environment/apriori-algrothem/data/upgraded_data.csv', index = False)
 
 # print(df)
-
+"""Block 1 finish """
 
 
 def getMinSupport(groupset, workingList, minS, noOfReapeated):
