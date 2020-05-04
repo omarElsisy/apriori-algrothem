@@ -71,7 +71,7 @@ df['Customer Subtype']=df['Customer Subtype'].map({
 })
 df['Number of houses ']=df['Number of houses '].map({0:"have no houses",1:"have 1 house",2:"have 2 houses",3:"have 3 houses",4:"have 4 houses",5:"have 5 houses",6:"have 6 houses",7:"have 7 houses",8:"have 8 houses",9:"have 9 houses",10:"have 10 houses"})
 df['Avg size household '] = df['Avg size household '].map({0:"no_house",1:'verysmall_House', 2:'small_House', 3:'good_House', 4:'big_House', 5:'villa',6:'villawithgarden'}) 
-df.to_csv(r'C:\Users\omar\Downloads\computer 2\sec term\big data\Apriori-master\data\upgraded_data.csv', index = False)
+df.to_csv(r'/home/omarcc/git_environment/apriori-algrothem/data/upgraded_data.csv', index = False)
 
 print(df)
 
