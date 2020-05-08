@@ -12,7 +12,7 @@ import pandas as pd
 do not have the upgraded_data.csv in your directory """
 """Block 1"""
 df = pd.read_csv("dataset_bigdata.csv") 
-df['Income 75-122.000'] = df['Income 75-122.000'].map({0:'122<income', 1:'85>income>75', 2:'95>income>85', 3:'105>income>95', 4:'115>income>105',5:'122>income>115'}) 
+df['Income 75-122.000'] = df['Income 75-122.000'].map({0:'122<income or income<75', 1:'85>income>75', 2:'95>income>85', 3:'105>income>95', 4:'115>income>105',5:'122>income>115'}) 
 df['Income >123.000']=df['Income >123.000'].map({0:"imcome<123",1:"income is bit bigger than 123",2:"income is bigger than 123",3:"income is much bigger than 123",4:"income is too much bigger than 123"})
 df['Average income']=df['Average income'].map({0:"no income",1:"too bad income",2:"bad income",3:"not so good income",4:"good income",5:"very good income",6:"too good income",7:"high income",8:"too high income",9:"over rated income"})
 df['Purchasing power class']=df['Purchasing power class'].map({0:"under Poverty line",1:"poverty",2:"above poverty line",3:"middle class",4:"above middle class",5:"high class",6:"top high class",7:"golden class",8:"dimamond class",9:"over rated class"})
