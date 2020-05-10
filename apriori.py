@@ -88,6 +88,9 @@ df.to_csv(r'/home/omarcc/git_environment/apriori-algrothem/upgraded_data.csv', i
 print(df)
 """Block 1 finish """
 
+def getSupport(item,noOfReapeated,groupOfData):
+            return float(noOfReapeated[item])/len(groupOfData)
+
 
 def getMinSupport(groupset, workingList, minS, noOfReapeated):
         newItemSet = set()
@@ -106,15 +109,15 @@ def getMinSupport(groupset, workingList, minS, noOfReapeated):
 
 
 
-def getItemSet(dataBase):
+def sets(dataBase):
     myGroupOfData = list()
-    itemSet = set()
+    setOfData = set()
     for r in dataBase:
         data = frozenset(r)#frozenset take only the keys foe tuple (dictionary)
         myGroupOfData.append(data)
         for item in data:
-            itemSet.add(frozenset([item]))              # Generate 1-itemSets
-    return itemSet, myGroupOfData
+            setOfData.add(frozenset([item]))              
+    return setOfData, myGroupOfData
 
 def enterSets(groupSet, length):
         return set([i.union(j) for i in groupSet for j in groupSet if len(i.union(j)) == length])
@@ -123,16 +126,14 @@ def enterSets(groupSet, length):
 def grouping(arr):
     return chain(*[combinations(arr, i + 1) for i, a in enumerate(arr)])
 
-def getSupport(item,noOfReapeated,groupOfData):
-            return float(noOfReapeated[item])/len(groupOfData)
 
 def apriori(dataBase, minSupport, minConfidence):
     noOfReapeated = defaultdict(int)
     allData = dict()
     assocationRules = dict()
-    itemSet, groupOfData = getItemSet(dataBase)
+    setOfData, groupOfData = sets(dataBase)
     
-    mySet = getMinSupport(itemSet, groupOfData, minSupport,noOfReapeated)
+    mySet = getMinSupport(setOfData, groupOfData, minSupport,noOfReapeated)
 
     workingSet = mySet
     k = 2
@@ -199,7 +200,7 @@ def dataFromFile(fname):
         f = open(fname, 'r')
         for l in f:
                 l = l.strip().rstrip(',')                         # Remove trailing comma
-                r = l.split(',')
+                r = frozenset(l.split(','))
                 yield r
 
 
